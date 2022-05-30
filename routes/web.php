@@ -6,19 +6,23 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\TagController;
 use App\Http\Controllers\eCommerceController;
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\OrderController;
 
 Route::get('/', [eCommerceController::class, 'index'])->name('home');
 Route::get('/search/category/{category}', [eCommerceController::class, 'searchCategory'])->name('serach-category');
 Route::get('/search/tag/{tag}', [eCommerceController::class, 'searchTag'])->name('serach-tag');
-
+Route::get('/search/product/',  [eCommerceController::class, 'searchProduct'])->name('serach.product');
+Route::get('/show/{product}', [eCommerceController::class, 'showProduct'])->name('show.product');
 
 require __DIR__.'/auth.php';
 
 Route::middleware(['auth'])->group(function(){
     Route::get('/cart', [CartController::class, 'index'])->name('cart.index');
+    Route::post('/cart/{product}', [CartController::class, 'store'])->name('cart.store');
+    Route::delete('/cart/{product}', [CartController::class, 'destroy'])->name('cart.destroy');
+    Route::post('/order', [OrderController::class, 'store'])->name('order.store');
+    Route::get('/order', [OrderController::class, 'index'])->name('order.index');
 });
-
-
 
 Route::middleware(['auth','admin'])->group(function(){
     Route::get('/product/create', [ProductController::class, 'create'])->name('product.create');

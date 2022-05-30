@@ -40,7 +40,14 @@
                             </ul>
                         </li>
                     </ul>
-
+                    <form action="{{ route('serach.product') }}" class="form-group my-0 mx-auto w-50">
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder="Digite o nome do produto" name="s">
+                            <div class="input-group-append">
+                                <button type="submit" class="input-group-text">Buscar</button>
+                            </div>
+                        </div>
+                    </form>
                     <ul class="navbar-nav ms-auto">
                         @guest
                             <li class="nav-item">
