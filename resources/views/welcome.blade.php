@@ -25,11 +25,20 @@
                         <span class="text-muted">R$ {{ $product->price }}</span>
                     </div>
                     <div class="text-center mt-3">
+<<<<<<< HEAD
                         <a href="{{ route('show.product', $product->id) }}" class="btn btn-secondary btn-sm">Visualizar</a>
                         <form action="{{ route('cart.store', $product->id) }}" method="POST" style="display:inline">
                             @csrf
                             <button type="submit" class="btn btn-primary btn-sm">Comprar</button>
                         </form>
+=======
+                        <a href="#" class="btn btn-primary btn-sm">Visualizar</a>
+                        <form action="{{ route('cart.store', $product->id) }}" method="POST" style="display:inline ">
+                            @csrf
+                            <button type ="submit" class="btn btn-primary btn-sm">Comprar</button>
+                        </form>
+
+>>>>>>> 7529cbfffc250a5e0fb1562d67e1bac2505c1ae9
                     </div>
                 </div>
             @endforeach

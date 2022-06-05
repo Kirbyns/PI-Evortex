@@ -18,10 +18,15 @@ require __DIR__.'/auth.php';
 
 Route::middleware(['auth'])->group(function(){
     Route::get('/cart', [CartController::class, 'index'])->name('cart.index');
+//<<<<<<< HEAD
     Route::post('/cart/{product}', [CartController::class, 'store'])->name('cart.store');
     Route::delete('/cart/{product}', [CartController::class, 'destroy'])->name('cart.destroy');
     Route::post('/order', [OrderController::class, 'store'])->name('order.store');
     Route::get('/order', [OrderController::class, 'index'])->name('order.index');
+//=======
+    Route::post('/cart/{product}' , [CartController::class, 'store']) -> name('cart.store');
+    Route::delete('/cart/{product}', [CartController::class, 'destroy'])->name('cart.destroy');
+//>>>>>>> 7529cbfffc250a5e0fb1562d67e1bac2505c1ae9
 });
 
 Route::middleware(['auth','admin'])->group(function(){
