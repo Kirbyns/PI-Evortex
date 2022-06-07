@@ -1,11 +1,11 @@
 @extends('layouts.app')
 
 @section('content')
-<a class="btn btn-lg btn-success float-end me-5" href="{{route('tag.create')}}">Criar Tag</a>
-<div class="container mt-3">
-    <table class="table table-striped">
+<a class="btn btn-outline-light btn-lg float-end me-5" href="{{route('tag.create')}}">Criar Tag</a>
+<div class="container mt-5 pb-5">
+    <table class="table table-striped table-dark">
         <thead>
-            <tr>
+            <tr class="text-secondary" >
                 <th>ID</th>
                 <th>Nome da Tag</th>
                 <th>Quantidade de Produtos</th>
@@ -19,8 +19,8 @@
                 <td>{{$tag->id}}</td>
                 <td>{{$tag->name}}</td>
                 <td>{{$tag->Products->count()}}</td>
-                <td><a href="{{ route('tag.edit', $tag->id) }}">Editar</a></td>
-                <td><a href="{{ route('tag.destroy', $tag->id) }}">Apagar</a></td>
+                <td><a class="btn btn-warning" href="{{ route('tag.edit', $tag->id) }}">Editar</a></td>
+                <td><a class="btn btn-danger" href="{{ route('tag.destroy', $tag->id) }}">Apagar</a></td>
             </tr>
             @endforeach
         <tbody>

@@ -13,61 +13,63 @@
     <title>E-Vortex</title>
 </head>
 
-<body>
-    <header>
-        <nav class="nav navbar-light bg-light navbar-expand-sm">
-            <div class="container-fluid">
-                <ul class="navbar-nav me-auto mb-2">
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ route('product.index') }}">
-                            Produto
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ route('product.trash') }}">
-                            Lixeira Produto
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ route('category.index') }}">
-                            Categorias
-                        </a>
-                    </li>
+<body style="background-color: #051022">
+    <div  class="bg-image" style="background-image:url(https://static.tibia.com/images/global/header/background-artwork.jpg);background-repeat: repeat-x" >
+        <header>
+            <nav class="navbar navbar-expand-md navbar navbar-dark bg-dark shadow-sm">
+                <div class="container-fluid">
+                    <ul class="navbar-nav me-auto mb-2">
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('product.index') }}">
+                                Produto
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('product.trash') }}">
+                                Lixeira Produto
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('category.index') }}">
+                                Categorias
+                            </a>
+                        </li>
 
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ route('category.trash') }}">
-                            Lixeira Categorias
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ route('tag.index') }}">
-                            Tag
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ route('tag.trash') }}">
-                            Lixeira Tag
-                        </a>
-                    </li>
-                    <li class="ms-auto">
-                        <form method="POST" action="{{ route('logout') }}">
-                            @csrf
-                            <button type="submit">Logout</button>
-                        </form>
-                    </li>
-                </ul>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('category.trash') }}">
+                                Lixeira Categorias
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('tag.index') }}">
+                                Tag
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('tag.trash') }}">
+                                Lixeira Tag
+                            </a>
+                        </li>
+                        <li class="ms-auto">
+                            <form method="POST" action="{{ route('logout') }}">
+                                @csrf
+                                <button type="submit">Logout</button>
+                            </form>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+
+        <main>
+            <div>
+                {{ session()->get('success') }}
             </div>
-        </nav>
-    </header>
-
-    <main>
-        <div>
-            {{ session()->get('success') }}
-        </div>
-        <section>
-            @yield('content')
-        </section>
-    </main>
+            <section>
+                @yield('content')
+            </section>
+        </main>
+    </div>
 
 </body>
 

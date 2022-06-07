@@ -1,17 +1,16 @@
 @extends('layouts.app')
 
 @section('content')
-<a class="btn btn-lg btn-success float-end me-5" href="{{route('product.create')}}">Criar Produto</a>
-<div class="container mt-3">
+<a class="btn btn-outline-light btn-lg float-end me-5" href="{{route('product.create')}}">Criar Produto</a>
+<div class="container mt-5 pb-5 ">
 
-    <table class="table table-striped">
-        <thead>
-            <tr>
+    <table class="table table-striped table-dark">
+        <thead >
+            <tr class="text-secondary text-lg " align="center">
                 <th>ID</th>
                 <th>Image</th>
                 <th>Nome</th>
                 <th>Descrição</th>
-                <th>Cat ID</th>
                 <th>Categoria</th>
                 <th>Tag</th>
                 <th>Preço</th>
@@ -27,15 +26,14 @@
                 <td><img src="{{asset($product->image)}}" style="width:35px; height:35px;"></td>
                 <td>{{$product->name}}</td>
                 <td>{{$product->description}}</td>
-                <td>{{$product->Category->id}}</td>
                 <td>{{$product->Category->name}}</td>
                 <td>@foreach($product->Tags()->get() as $tag)
                 {{$tag->name}}
                 @endforeach</td>
                 <td>{{$product->price}}</td>
                 <td>{{$product->stock}}</td>
-                <td><a href="{{ route('product.edit', $product->id) }}">Editar</a></td>
-                <td><a href="{{ route('product.destroy', $product->id) }}">Apagar</a></td>
+                <td><a  class="btn btn-warning" href="{{ route('product.edit', $product->id) }}">Editar</a></td>
+                <td><a  class="btn btn-danger" href="{{ route('product.destroy', $product->id) }}">Apagar</a></td>
             </tr>
             @endforeach
         </tbody>

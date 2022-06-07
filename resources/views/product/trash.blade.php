@@ -1,12 +1,12 @@
 @extends('layouts.app')
 
 @section('content')
-<a class="btn btn-lg btn-success float-end me-5" href="{{route('category.create')}}">Criar Categoria</a>
-<div class="container mt-3">
 
-    <table class="table table-striped">
+<div class="container mt-5 pb-5">
+
+    <table class="table table-striped table-dark ">
         <thead>
-            <tr>
+            <tr class="text-secondary text-lg " align="center">
                 <th>ID</th>
                 <th>Nome</th>
                 <th>Descrição</th>
@@ -31,7 +31,7 @@
                 @endforeach</td>
                 <td>{{$product->price}}</td>
                 <td>{{$product->stock}}</td>
-                <td><a href="{{ route('product.restore', $product->id) }}">Restaurar</a></td>
+                <td><a class="btn btn-success" href="{{ route('product.restore', $product->id) }}">Restaurar</a></td>
             </tr>
             @endforeach
         </tbody>
