@@ -22,7 +22,7 @@
                     <label for="state">Estado</label>
                     <input type="text" class="form-control" name="state" placeholder="Estado">
                 </div>
-                <button type="submit" class="btn btn-lg btn-primary my-2 float-end">Comprar</button>
+                <button type="submit" class="btn btn-lg btn-dark my-2 float-end">Comprar</button>
             </form>
         </div>
         <div class="col-8">
@@ -30,6 +30,7 @@
             <table class="table">
                 <thead>
                     <tr>
+                        <th>foto</th>
                         <th>Produto</th>
                         <th>Preço</th>
                         <th>Quantidade</th>
@@ -39,18 +40,19 @@
                 <?php $total = 0.0 ?>
                 @foreach($itens as $item)
                 <tr>
+                    <td> <img src="{{$item->Product->image}}" alt=""></td>
                     <td>{{$item->Product->name}}</td>
                     <td>{{$item->Product->price}}</td>
                     <td>
                         <form action="{{ route('cart.store', $item->Product->id) }}" method="POST" style="display:inline">
                             @csrf
-                            <button type="submit" class="btn btn-primary btn-sm">+</button>
+                            <button type="submit" class="btn btn-warning btn-sm">+</button>
                         </form>
                         {{$item->units}}
                         <form action="{{ route('cart.destroy', $item->Product->id) }}" method="POST" style="display:inline">
                             @csrf
                             @method("DELETE")
-                            <button type="submit" class="btn btn-primary btn-sm">-</button>
+                            <button type="submit" class="btn btn-danger btn-sm">-</button>
                         </form>
                     </td>
                 </tr>
@@ -58,7 +60,7 @@
             @endforeach
                 <tr>
                     <td class="fw-bold">Total</td>
-                    <td class="fw-bold">R$ {{ number_format($total,2) }}</td>
+                    <td class="fw-bold">R$ {{ number_format($total,2) }}</td> <!---formatação numerica-->
                     <td></td>
                 </tr>
             </tbody>

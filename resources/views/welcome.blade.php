@@ -1,38 +1,42 @@
 @extends('layouts.store')
 
 @section('content')
-    <section class="py-5 text-center container">
-        <div class="row py-lg-5">
-            <div class="col-lg-6 col-md-8 mx-auto">
-                <h1 class="fw-light">Album example</h1>
-                <p class="lead text-muted">Something short and leading about the collection below—its contents, the creator,
-                    etc. Make it short and sweet, but not too short so folks don’t simply skip over it entirely.</p>
-                <p>
-                    <a href="#" class="btn btn-primary my-2">Main call to action</a>
-                    <a href="#" class="btn btn-secondary my-2">Secondary action</a>
-                </p>
+    <div id="carouselExampleSlidesOnly" class=" mb-3 carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img class="d-block w-100" src="..\images\banner02.png" alt="First slide">
             </div>
         </div>
-    </section>
+    </div>
 
     <section class="container">
         <div class="row">
             @foreach ($products as $product)
-                <div class="mx-auto col-sm-10 col-md-6 col-lg-3 my-2">
-                    <img src="{{ asset($product->image) }}" class="img-fluid">
-                    <span class="d-block h6 text-center mt-3">{{ $product->name }}</span>
+                <div class="card bg-light mx-3 shadow p-3 mb-5 bg-white rounded" style="width: 18rem;">
+                <img src="{{ asset($product->image) }}" class="card-img-top">
+
+                    <h5 class="card-title text-center">{{ $product->name }}</h5>
+
                     <div class="text-center">
+                    <p class="card-text">{{$product->description}}</p>
                         <span class="text-muted">R$ {{ $product->price }}</span>
                     </div>
-                    <div class="text-center mt-3">
-                        <a href="{{ route('show.product', $product->id) }}" class="btn btn-secondary btn-sm">Visualizar</a>
+                    <div class="card-body text-center">
+                        <a href="{{ route('show.product', $product->id) }}" class="btn btn-warning btn-sm card-link">Visualizar</a>
                         <form action="{{ route('cart.store', $product->id) }}" method="POST" style="display:inline">
                             @csrf
-                            <button type="submit" class="btn btn-primary btn-sm">Comprar</button>
+                            <button type="submit" class="btn btn-dark btn-sm card-link">Comprar</button>
                         </form>
                     </div>
                 </div>
+
             @endforeach
+
+            {{ $products->links()}}
         </div>
+
     </section>
+
 @endsection
+
+

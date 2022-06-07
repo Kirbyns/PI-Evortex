@@ -7,9 +7,12 @@ use App\Models\Product;
 use App\Models\Category;
 use App\Models\Tag;
 
+
 class ProductController extends Controller
 {
     public function index(){
+       // $products = DB::table(table: 'products')->paginate(perPage:2); tentativa de paginação.
+       //return view('products.index')->with('products', $product->simplePaginate(4));
         return view('product.index')->with('products',Product::all());
     }
 

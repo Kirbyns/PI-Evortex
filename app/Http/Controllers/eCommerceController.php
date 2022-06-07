@@ -9,8 +9,8 @@ use App\Models\Tag;
 
 class eCommerceController extends Controller
 {
-    public function index(){
-            return view('welcome')->with('products', Product::all());
+    public function index(Product $products){
+        return view('welcome')->with('products', $products->Paginate(8));
     }
 
     public function searchCategory(Category $category){

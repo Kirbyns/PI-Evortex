@@ -7,8 +7,8 @@
     Drescrição: <input type="text" name="description">
     Preço: <input type="number" step="0.1" name="price">
     Estoque: <input type="number" name="stock">
-    Imagem: <input type="file" name="image">
-    Selecione uma categoria:
+    Imagem: <input type="file" name="image" >
+    categoria:
     <select name="category_id">
         @foreach($categories as $category)
         <option value="{{$category->id}}">{{ $category->name }}</option>

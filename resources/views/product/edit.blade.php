@@ -9,7 +9,7 @@
     Preço: <input type="number" step="0.1" name="price"  value="{{$product->price}}">
     Estoque: <input type="number" name="stock"  value="{{$product->stock}}">
     Imagem: <input type="file" name="image">
-    Selecione uma categoria:
+    categoria:
     <select name="category_id">
         @foreach($categories as $category)
         <option value="{{$category->id}}"
