@@ -1,7 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-<a class="btn btn-outline-light btn-lg float-end me-5" href="{{route('tag.create')}}">Criar Tag</a>
 <div class="container mt-5 pb-5">
     <table class="table table-striped table-dark">
         <thead>

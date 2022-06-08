@@ -17,46 +17,44 @@
     <div  class="bg-image" style="background-image:url(https://static.tibia.com/images/global/header/background-artwork.jpg);background-repeat: repeat-x" >
         <header>
             <nav class="navbar navbar-expand-md navbar navbar-dark bg-dark shadow-sm">
-                <div class="container-fluid">
-                    <ul class="navbar-nav me-auto mb-2">
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('product.index') }}">
-                                Produto
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('product.trash') }}">
-                                Lixeira Produto
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('category.index') }}">
-                                Categorias
-                            </a>
-                        </li>
+                <div class="container">
+                    <a class="navbar-brand" href="{{ url('/') }}">E-vortex</a>
+                    <div class="collapse navbar-collapse">
+                        <ul class="navbar-nav mr-auto">
+                            <li class="nav-item dropdown"> <!-- dropdown para Produtos -->
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarProdutosAdm" role="button" data-bs-toggle="dropdown">Produtos</a>
+                                <ul class="dropdown-menu bg-dark" aria-labelledby="navbarProdutosAdm">
+                                    <a class="dropdown-item text-light" href="{{ route('product.index') }}"> Listagem Produtos</a>
+                                    <a class="dropdown-item text-light" href="{{ route('product.trash') }}">Lixeira Produto</a>
+                                    <a class="dropdown-item text-warning" href="{{route('product.create')}}">Criar Produto</a>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown"> <!-- dropdown para Categorias -->
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarProdutosAdm" role="button" data-bs-toggle="dropdown">Categorias</a>
+                                <ul class="dropdown-menu bg-dark" aria-labelledby="navbarProdutosAdm">
+                                    <a class="dropdown-item text-light" href="{{ route('category.index') }}"> Listagem Categorias</a>
+                                    <a class="dropdown-item text-light" href="{{ route('category.trash') }}">Lixeira Categorias</a>
+                                    <a class="dropdown-item text-warning" href="{{route('category.create')}}">Criar Categoria</a>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown"> <!-- dropdown para Tags -->
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarProdutosAdm" role="button" data-bs-toggle="dropdown">Tag</a>
+                                <ul class="dropdown-menu bg-dark" aria-labelledby="navbarProdutosAdm">
+                                    <a class="dropdown-item text-light" href="{{ route('tag.index') }}"> Listagem Tag's</a>
+                                    <a class="dropdown-item text-light" href="{{ route('tag.trash') }}">Lixeira Tag</a>
+                                    <a class="dropdown-item text-warning" href="{{route('tag.create')}}">Criar Tag</a>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
 
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('category.trash') }}">
-                                Lixeira Categorias
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('tag.index') }}">
-                                Tag
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('tag.trash') }}">
-                                Lixeira Tag
-                            </a>
-                        </li>
-                        <li class="ms-auto">
-                            <form method="POST" action="{{ route('logout') }}">
-                                @csrf
-                                <button type="submit">Logout</button>
-                            </form>
-                        </li>
-                    </ul>
+                    <div class="d-flex flex-row"><!--sofrido, não impossivel. lembrar de usar align center para "alinhar" as divs-->
+                        <span class="text-muted p-2">{{ Auth::user()->name }}</span>
+                        <form method="POST" action="{{ route('logout') }}">
+                            @csrf
+                            <button class="btn btn-outline-danger" type="submit">Logout</button>
+                        </form>
+                    </div>
                 </div>
             </nav>
         </header>

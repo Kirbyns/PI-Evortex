@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<a class="btn btn-outline-light btn-lg float-end me-5" href="{{route('product.create')}}">Criar Produto</a>
+
 <div class="container mt-5 pb-5 ">
 
     <table class="table table-striped table-dark">

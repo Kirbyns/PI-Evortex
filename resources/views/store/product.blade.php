@@ -9,21 +9,23 @@
       </nav>
 </section>
 <section class="container py-4">
-    <div class="row">
-        <div class="col-4 mx-auto text-center">
-            <img src="{{ asset($product->image) }}" class="img-fluid">
+    <div class="row bg-light mx-5 shadow-lg p-4 pb-4 bg-white rounded">
+        <div class="col-4 mx-auto text-left shadow-sm p-3 mb-3 bg-light rounded">
+            <img src="{{ asset($product->image) }}" class="img-fluid" style="width: 70%">
         </div>
-        <div class="mx-auto col-8 text-center">
-            <h2 class="text-uppercase">{{ $product->name }}</h2>
+        <div class="mx-auto col-8 text-left">
+            <h2 class="text-uppercase h2">{{ $product->name }}</h2>
             <p class="text-muted">{{ $product->description }}</p>
-            <div class="text-center">
-                <span>{{ $product->price }}</span>
+            <div class="text-left">
+               <span class="display-6  text-warning">R$</span> <span class="display-4"> {{ number_format($product->price, 2, ',', '.') }}</span>
             </div>
-            <form action="{{ route('cart.store', $product->id) }}" method="POST" style="display:inline">
-                @csrf
-                <button type="submit" class="btn btn-primary btn-sm">Comprar</button>
-            </form>
-            <div class="text-center mt-5">
+            <div class="d-flex flex-row-reverse ">
+                <form action="{{ route('cart.store', $product->id) }}" method="POST" style="display:inline">
+                    @csrf
+                    <button type="submit" class="btn btn-warning btn-lg ">Comprar</button>
+                </form>
+            </div>
+            <div class="text-center">
                 <h3>Tags</h3>
                 @foreach($product->Tags as $tag)
                     <a class="btn btn-sm btn-secondary" href="{{ route('serach-tag', $tag->id) }}">{{$tag->name}}</a>

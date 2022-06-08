@@ -16,13 +16,13 @@
 
                     <div class="text-center">
                     <p class="card-text">{{$product->description}}</p>
-                        <span class="text-muted">R$ {{ $product->price }}</span>
+                        <span class="text-muted">R$ {{ number_format($product->price, 2, ',', '.')}}</span>
                     </div>
                     <div class="card-body text-center">
                         <a href="{{ route('show.product', $product->id) }}" class="btn btn-warning btn-sm card-link">Visualizar</a>
                         <form action="{{ route('cart.store', $product->id) }}" method="POST" style="display:inline">
                             @csrf
-                            <button type="submit" class="btn btn-secondary btn-sm card-link">Comprar</button>
+                            <button type="submit" class="btn btn-dark btn-sm card-link">Comprar</button>
                         </form>
                     </div>
                 </div>

@@ -12,18 +12,11 @@
 </head>
 
 <body style="background-color: #051022">
-<div  class="bg-image" style="background-image:url(https://static.tibia.com/images/global/header/background-artwork.jpg);background-repeat: repeat-x" >
-    <header>
-        <nav class="navbar navbar-expand-md navbar navbar-dark bg-dark shadow-sm">
-            <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    E-vortex
-                </a>
-              <!-- retirar depois
-                  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"> </span>
-                </button> -->
-
+    <div  class="bg-image" style="background-image:url(https://static.tibia.com/images/global/header/background-artwork.jpg);background-repeat: repeat-x" >
+        <header>
+            <nav class="navbar navbar-expand-md navbar navbar-dark bg-dark shadow-sm">
+                <div class="container">
+                <a class="navbar-brand" href="{{ url('/') }}">E-vortex</a>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item dropdown">
@@ -94,9 +87,9 @@
         @endif
         @yield('content')
     </main>
-    <div class="bg-dark text-muted ">
+    <div class="bg-dark text-muted  footer">
         <div class="container bg-dark pb-5  pt-3">
-            <footer class="row row-cols-5">
+            <footer class="row row-cols-5  ">
                 <div class="col">
                     <div class="col">
                         <a href="#" class="navbar-brand text-muted ">E-Vortex</a>
